@@ -8,8 +8,8 @@ pkgdesc="PulseAudio modules for Nemo"
 arch=('x86_64' 'aarch64')
 url="https://git.sailfishos.org/mer-core/pulseaudio-modules-nemo.git"
 license=('LGPLv2+')
-depends=('libpulse' 'alsa-lib')
-makedepends=('git' 'automake' 'autoconf' 'pulsecore-headers')
+depends=('libpulse' 'alsa-lib' 'pulseaudio')
+makedepends=('git' 'automake' 'autoconf' 'pulsecore-headers' 'check')
 source=("${pkgname}::git+${url}")
 sha256sums=('SKIP')
 
@@ -46,8 +46,8 @@ package() {
   install -m 644 src/record/module-record-api.h ${pkgdir}/usr/include/pulsecore/modules/meego
   install -d ${pkgdir}/usr/include/pulsecore/modules/sailfishos
   install -m 644 src/common/include/sailfishos/*.h ${pkgdir}/usr/include/pulsecore/modules/sailfishos
-  install -d ${pkgdir}/%{_libdir}/pkgconfig
-  install -m 644 src/common/*.pc ${pkgdir}/%{_libdir}/pkgconfig
+  install -d ${pkgdir}/usr/lib/pkgconfig
+  install -m 644 src/common/*.pc ${pkgdir}/usr/lib/pkgconfig
 
 }
  
