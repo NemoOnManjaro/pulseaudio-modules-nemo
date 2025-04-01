@@ -8,8 +8,13 @@ pkgdesc="PulseAudio modules for Nemo"
 arch=('x86_64' 'aarch64')
 url="https://github.com/sailfishos/pulseaudio-modules-nemo"
 license=('LGPLv2+')
-depends=('libpulse' 'alsa-lib' 'manjaro-pulse')
-makedepends=('meson' 'pulsecore-headers' 'check' 'manjaro-pulse')
+depends=('libpulse' 'alsa-lib')
+depends_x86_64=('manjaro-pulse')
+depends_aarch64=('pulseaudio')
+
+makedepends=('meson' 'pulsecore-headers' 'check')
+
+
 source=("${url}/archive/refs/tags/$pkgver.tar.gz"
     '0001-stream-restore-nemo-fix-path-for-L-usr-lib-pulseaudi.patch'
 )
